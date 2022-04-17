@@ -1,0 +1,11 @@
+#####################   Estimacion de la Evapotranspiracion (ETo) - HS  #####
+
+library(BrazilMet)   
+
+dfp <- read.csv("E:/LIBRO/ETo_Altiplano/Puno_Tx_Tn_Tm.csv", 
+                header = T, sep = ",")
+lat_puno <- -15.826
+ra_puno <- ra_calculation(latitude = lat_puno, date = as.Date(dfp$Fecha)) # as.Data para aque reconozca como fechas
+EHS_Puno <- eto_hs(tmin = dfp$Tn, tmean = dfp$Tm, tmax = dfp$Tx, ra = ra_puno) 
+
+plot(ra_puno$ra, type = "l", col="red")
