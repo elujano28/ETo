@@ -9,3 +9,5 @@ ra_puno <- ra_calculation(latitude = lat_puno, date = as.Date(dfp$Fecha)) # as.D
 EHS_Puno <- eto_hs(tmin = dfp$Tn, tmean = dfp$Tm, tmax = dfp$Tx, ra = ra_puno) 
 
 plot(ra_puno$ra, type = "l", col="red")
+
+plot(EHS_Puno$Eto_HS, type = "l", col="blue")
